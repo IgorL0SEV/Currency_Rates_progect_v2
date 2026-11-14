@@ -56,6 +56,24 @@ pip install -r requirements.txt
 python currency.py
 ```
 
+Вариант без активации venv (удобно для VS Code и если PowerShell блокирует `Activate.ps1`):
+
+```powershell
+python -m venv venv
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe currency.py
+```
+
+Если активация запрещена политикой PowerShell — на текущее окно терминала:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate.ps1
+```
+
+В VS Code: открыть папку проекта, выбрать интерпретатор `.\venv\Scripts\python.exe`,
+запускать `currency.py` в терминале. Через F5 не стоит — меню использует `input()`.
+
 Меню:
 
 - `1` — показать курсы к текущей базовой валюте (RUB, EUR, GBP);
